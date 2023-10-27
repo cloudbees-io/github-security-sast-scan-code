@@ -1,0 +1,70 @@
+= CloudBees action: Scan with GitHub Advanced Security
+
+Use this action to scan a public GitHub repository with the GitHub Advanced Security tool. GitHub Advanced Security can detect security vulnerabilities and coding errors in your code.
+
+NOTE: Scanning of private GitHub repositories is not supported.
+
+== Inputs
+
+[cols="2a,1a,1a,3a",options="header"]
+.Input details
+|===
+
+| Input name
+| Data type
+| Required?
+| Description
+
+| `token`
+| String
+| Yes
+| The GitHub client secret.
+
+| `language`
+| String
+| No
+| The language of your Git repository code base.
+Refer to the supported languages below.
+
+|===
+
+== Supported languages
+
+[cols="1a,1a",options="header"]
+.Supported languages with inputs
+|===
+
+| Supported language
+| Input format
+
+| Go
+| `LANGUAGE_GO`
+
+| Java
+| `LANGUAGE_JAVA`
+
+|===
+
+== Usage example
+
+In your YAML file, add:
+
+[source,yaml]
+----
+
+      - name: Scan with GitHub Advanced Security
+        uses: cloudbees-io/github-security-sast-scan-code@v1
+        with:
+          token: ${{ secrets.GITHUB_SECRET }}
+          language: "LANGUAGE_JAVA"
+----
+
+== License
+
+This code is made available under the 
+link:https://opensource.org/license/mit/[MIT license].
+
+== References
+
+* Learn more about link:https://docs.cloudbees.com/docs/cloudbees-saas-platform-actions/latest/[using actions in CloudBees workflows].
+* Learn about link:https://docs.cloudbees.com/docs/cloudbees-saas-platform/latest/[the CloudBees platform].
