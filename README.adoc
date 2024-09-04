@@ -26,6 +26,16 @@ NOTE: Scanning of private GitHub repositories is not supported.
 | The language of your Git repository code base.
 Refer to the supported languages below.
 
+| `github-url`
+| String
+| No
+| The github url for the repository which needs to be scanned.
+
+| `branch-name`
+| String
+| No
+| The branch name for the repository which needs to be scanned.
+
 |===
 
 == Supported languages
