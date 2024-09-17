@@ -29,12 +29,12 @@ Refer to the supported languages below.
 | `github-url`
 | String
 | No
-| The github url for the repository which needs to be scanned.
+| The GitHub URL of the repository to be scanned.
 
 | `branch-name`
 | String
 | No
-| The branch name for the repository which needs to be scanned.
+| The branch in your repository to be scanned.
 
 |===
 
