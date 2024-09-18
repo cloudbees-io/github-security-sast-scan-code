@@ -6,7 +6,7 @@ NOTE: Scanning of private GitHub repositories is not supported.
 
 == Prerequisites
 
-A Personal Access Token (PAT) with read-only permission is required to read the alerts from the public repository. This token is used in the YAML file, which pushes the alerts to {PRODUCT}.
+A Personal Access Token (PAT) with read-only permission is required to read the alerts from the public repository. This token is used in the YAML file, which pushes the alerts to CloudBees platform.
 
 Configure the following steps for this action:
 
