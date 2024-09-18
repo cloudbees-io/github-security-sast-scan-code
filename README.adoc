@@ -4,6 +4,46 @@ Use this action to scan a public GitHub repository with the GitHub Advanced Secu
 
 NOTE: Scanning of private GitHub repositories is not supported.
 
+== Prerequisites
+
+A Personal Access Token (PAT) with read-only permission is required to read the alerts from the public repository. This token is used in the YAML file, which pushes the alerts to {PRODUCT}.
+
+Configure the following steps for this action:
+
+. Enable the alerts for your public repository.
+. Create the PAT token.
+
+=== Enable alerts
+
+The *Dependabot*, *Code scanning*, and *Secret scanning* alerts must be enabled for the public repositories to identify vulnerabilities and coding errors.
+
+To enable the alerts:
+
+NOTE: User must have administrator access to the GitHub repository to enable permissions.
+
+. Go to the GitHub repository.
+. Select your profile from the top-right.
+. Select menu:Settings[Security > Code security and analysis].
+. In the *Dependabot* section, select *Enable* for the *Dependabot alerts* option.
+. In the *Code scanning* section, select menu:Set up[Default] for the *CodeQL analysis* option under *Tools*.
+. Select *Enable* for the *Secret scanning* option.
+
+=== Create PAT token
+
+A Personal Access Token (PAT), which is a 40 character hexadecimal value, is required to read the *Dependabot*, *Code scanning*, and *Secret scanning* alerts from public repository.
+
+To create a PAT token, refer to these link:https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token[instructions].
+
+[NOTE]
+====
+Consider the following when you create the PAT token:
+
+* PAT token has read-only access for the *Dependabot*, *Code scanning*, and *Secret scanning* alerts.
+* Repository for which the token is created has read-only access.
+====
+
+Use the created PAT token to invoke the action.
+
 == Inputs
 
 [cols="2a,1a,1a,3a",options="header"]
