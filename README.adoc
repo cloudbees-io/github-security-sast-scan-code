@@ -4,6 +4,37 @@ Use this action to scan a public GitHub repository with the GitHub Advanced Secu
 
 NOTE: Scanning of private GitHub repositories is not supported.
 
+== Prerequisites
+
+A Personal Access Token (PAT) with read-only permission is required to read security alerts (which must be enabled) from the public repository. This token is used in the YAML file, which pushes the alerts to {PRODUCT}.
+
+=== Enable security alerts
+
+Refer to the following GitHub documentation for information on enabling these alerts for your repository:
+
+* link:https://docs.github.com/en/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts[Configuring dependabot alerts]
+* link:https://docs.github.com/en/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository#enabling-secret-scanning-alerts-for-users[Enabling secret scanning for your repository]
+
+Refer to the following GitHub documentation for information on setting code scanning (CodeQL analysis) to default:
+
+* link:https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#configuring-default-setup-for-a-repository[Configuring the default setup for code scanning]
+
+=== Create a PAT
+
+CloudBees requires a fine-grained GitHub PAT to read the security alerts from your repository. 
+
+To create a fine-grained PAT, refer to the link:https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token[GitHub documentation].
+
+[NOTE]
+====
+CloudBees recommends the following configuration:
+
+* The fine-grained PAT has read-only access to the *Dependabot*, *Code scanning*, and *Secret scanning* alerts.
+* The repository for which the token is created has read-only access.
+====
+
+Use the fine-grained PAT in the YAML file to invoke the action.
+
 == Inputs
 
 [cols="2a,1a,1a,3a",options="header"]
@@ -29,12 +60,12 @@ Refer to the supported languages below.
 | `github-url`
 | String
 | No
-| The github url for the repository which needs to be scanned.
+| The GitHub URL of the repository to be scanned.
 
 | `branch-name`
 | String
 | No
-| The branch name for the repository which needs to be scanned.
+| The branch in your repository to be scanned.
 
 |===
 
