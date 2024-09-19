@@ -6,43 +6,34 @@ NOTE: Scanning of private GitHub repositories is not supported.
 
 == Prerequisites
 
-A Personal Access Token (PAT) with read-only permission is required to read the alerts from the public repository. This token is used in the YAML file, which pushes the alerts to CloudBees platform.
+A Personal Access Token (PAT) with read-only permission is required to read security alerts (which must be enabled) from the public repository. This token is used in the YAML file, which pushes the alerts to {PRODUCT}.
 
-Configure the following steps for this action:
+=== Enable security alerts
 
-. Enable the alerts for your public repository.
-. Create the PAT token.
+Refer to the following GitHub documentation for information on enabling these alerts for your repository:
 
-=== Enable alerts
+* link:https://docs.github.com/en/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts[Configuring dependabot alerts]
+* link:https://docs.github.com/en/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository#enabling-secret-scanning-alerts-for-users[Enabling secret scanning for your repository]
 
-The *Dependabot*, *Code scanning*, and *Secret scanning* alerts must be enabled for the public repositories to identify vulnerabilities and coding errors.
+Refer to the following GitHub documentation for information on setting code scanning (CodeQL analysis) to default:
 
-To enable the alerts:
+* link:https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#configuring-default-setup-for-a-repository[Configuring the default setup for code scanning]
 
-NOTE: User must have administrator access to the GitHub repository to enable permissions.
+=== Create a PAT
 
-. Go to the GitHub repository.
-. Select your profile from the top-right.
-. Select menu:Settings[Security > Code security and analysis].
-. In the *Dependabot* section, select *Enable* for the *Dependabot alerts* option.
-. In the *Code scanning* section, select menu:Set up[Default] for the *CodeQL analysis* option under *Tools*.
-. Select *Enable* for the *Secret scanning* option.
+CloudBees requires a fine-grained GitHub PAT to read the security alerts from your repository. 
 
-=== Create PAT token
-
-A Personal Access Token (PAT), which is a 40 character hexadecimal value, is required to read the *Dependabot*, *Code scanning*, and *Secret scanning* alerts from public repository.
-
-To create a PAT token, refer to these link:https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token[instructions].
+To create a fine-grained PAT, refer to the link:https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token[GitHub documentation].
 
 [NOTE]
 ====
-Consider the following when you create the PAT token:
+CloudBees recommends the following configuration:
 
-* PAT token has read-only access for the *Dependabot*, *Code scanning*, and *Secret scanning* alerts.
-* Repository for which the token is created has read-only access.
+* The fine-grained PAT has read-only access to the *Dependabot*, *Code scanning*, and *Secret scanning* alerts.
+* The repository for which the token is created has read-only access.
 ====
 
-Use the created PAT token to invoke the action.
+Use the fine-grained PAT in the YAML file to invoke the action.
 
 == Inputs
 
