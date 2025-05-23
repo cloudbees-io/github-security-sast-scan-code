@@ -19,7 +19,7 @@ runs:
     - id: run-orchestrator
       name: github-security-scan
       # latest image
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/github-security-sast-actions:main-97ff388391d952e68c0612b8ba28030f10827e0c
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/github-security-sast-actions:main-b28f3b12e0d0bce752e71079cf5218ff835e600d
       shell: bash
       env:
         CONFIG_JSON: '{\"metaInfo\":{\"url\":\"NA\",\"username\":\"NA\",\"password\":\"NA\",\"client_secret\":\"${{ inputs.token }}\",\"toolName\":\"githubsecurity\"},\"orchestratorInfo\":{\"language\":\"${{ inputs.language }}\",\"assetType\":\"CODE\",\"assetIdentifier\":\"${{ inputs.github-url }}\",\"profileIdentifier\":\"${{ inputs.branch-name }}\"},\"metaInformation\":{\"actor\":\"SCM-Bot\",\"commit_id\":\"${{ cloudbees.scm.sha }}\",\"scanner_type\":\"SAST\"}}'
